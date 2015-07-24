@@ -7,10 +7,13 @@
 		<meta name=viewport content="width=device-width, initial-scale=1">
 		<meta name="mobile-web-app-capable" content="yes">
 		<link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />    
-	<link rel="stylesheet" type="text/css" href="../lib/semantic/dist/semantic.min.css">
-	<link rel="stylesheet" type="text/css" href="../css/helpers.css">
-	<script src="../lib/bower/jquery/dist/jquery.min.js"></script>
-	<script src="../lib/semantic/dist/semantic.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../lib/semantic/dist/semantic.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/helpers.css">
+		<link rel="stylesheet" type="text/css" href="../css/semantic_custom.css">
+		
+		<script src="../lib/bower/jquery/dist/jquery.min.js"></script>
+		<script src="../lib/semantic/dist/semantic.min.js"></script>
+		<script src="../lib/bower/angularjs/angular.min.js"></script>
 	
 </head>
 <body>
@@ -20,7 +23,7 @@
 				<div class="ui text menu">
 					<div class="header item">MuultiRoom</div>
 					<div class="right menu item">
-						<a href="#">Iniciar sesión</a>
+						<a href="#" id="openModal">Iniciar sesión</a>
 					</div>
 				</div>
 			
@@ -62,5 +65,37 @@
 		 </form>
 		</div>
 	</div>
+
+
+	<div class="ui very_small modal">
+	  <i class="close icon"></i>
+	  <div class="header">
+	    Iniciar sesión
+	  </div>
+	  <div class="content">
+	  	<form class="ui form padding-top-two">
+			<div class="field padding-left-one padding-right-one">
+				<input type="email" name="register-email" placeholder="Correo Electrónico">
+			</div>
+			<div class="field padding-one">
+				<input type="password" name="register-password" placeholder="Contraseña">
+			</div>
+			<div class="two fields padding-two">
+					<div class="field">
+						<a href="#">¿Olvidaste tu contraseña?</a>
+					</div>
+					<div class="field">
+						<button class="fluid ui blue button" type="submit">Iniciar sesión</button>
+					</div>
+			</div>
+		 </form>
+	  </div>
+	</div>
+
+<script type="text/javascript">
+	$( "#openModal" ).click(function() {
+	  $('.ui.modal').modal('show');
+	});
+</script>
 </body>
 </html>

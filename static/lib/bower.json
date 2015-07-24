@@ -21,6 +21,7 @@
   ],
   "dependencies": {
     "jquery": "~2.1.4",
-    "css-helpers-lib": "*"
+    "css-helpers-lib": "*",
+    "angularjs": "~1.4.3"
   }
 }

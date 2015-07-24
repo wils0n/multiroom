@@ -1,0 +1,53 @@
+
+/*******************************
+             Modal
+*******************************/
+.ui.modal {
+  top: 35%;
+}
+/*--------------
+     Content
+---------------*/
+
+.ui.modal > .content {
+  background: #f6f9fc;
+}
+
+/*--------------
+      Size
+---------------*/
+.ui.very_very_small.modal > .header:not(.ui) {
+  font-size: 1.3em;
+}
+
+/* very_small Modal Width */
+@media only screen and (max-width: 767px) {
+  .ui.very_small.modal {
+    width: 70%;
+    margin: 0em 0em 0em -35%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .ui.very_small.modal {
+    width: 60%;
+    margin: 0em 0em 0em 30%;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .ui.very_small.modal {
+    width: 400px;
+    margin: 0em 0em 0em -200px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .ui.very_small.modal {
+    width: 450px;
+    margin: 0em 0em 0em -225px;
+  }
+}
+@media only screen and (min-width: 1920px) {
+  .ui.very_small.modal {
+    width: 460px;
+    margin: 0em 0em 0em -230px;
+  }
+}

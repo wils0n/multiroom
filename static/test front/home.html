@@ -10,10 +10,12 @@
 		<link rel="stylesheet" type="text/css" href="../lib/semantic/dist/semantic.min.css">
 		<link rel="stylesheet" type="text/css" href="../css/helpers.css">
 		<link rel="stylesheet" type="text/css" href="../css/semantic_custom.css">
+		<link rel="stylesheet" type="text/css" href="../css/mycss.css">
 	
 </head>
 <body ng-app="HomeApp">
-	<div class="ui grid container">
+	<nav class="ui grid">
+	 <div class="ui grid container">
 		<div class="row">
 			<div class="column">
 				<div class="ui text menu">
@@ -25,31 +27,32 @@
 			
 			</div>
 		</div>
-	</div>
+		</div>
+	</nav>
 	<div class="ui divider"></div>
 
-	<div class="padding-top-eight ui two column grid container">
+	<div class="ui grid container two column padding-top-eight">
 		<div class="column">
 			<img class="disabled medium ui image" src="../img/home1.png">
 		</div>
-		<div class="column">
-			<form class="ui form">
+		<div class="column" ng-controller="registerController">
+			<form class="ui form" ng-submit="MyRegister.sendForm()">
 			<h3 class="ui header">Crear una Cuenta</h3>
 			<div class="field">
 				<div class="two fields">
 					<div class="field">
-						<input type="text" name="shipping[register-first-name]" placeholder="Nombre">
+						<input type="text" name="shipping[register-first-name]" placeholder="Nombre" ng-model="MyRegister.firstName">
 					</div>
 					<div class="field">
-						<input type="text" name="shipping[register-last-name]" placeholder="Apellido">
+						<input type="text" name="shipping[register-last-name]" placeholder="Apellido" ng-model="MyRegister.lastName">
 					</div>
 				</div>
 			</div>
 			<div class="field">
-				<input type="email" name="register-email" placeholder="Correo Electrónico">
+				<input type="email" name="register-email" placeholder="Correo Electrónico" ng-model="MyRegister.email">
 			</div>
 			<div class="field">
-				<input type="password" name="register-password" placeholder="Contraseña">
+				<input type="password" name="register-password" placeholder="Contraseña" ng-model="MyRegister.password">
 			</div>
 			<div class="field">
 				<div class="ui checkbox">
@@ -71,17 +74,17 @@
 	  <div class="content">
 	  	<form class="ui form padding-top-two">
 			<div class="field padding-left-one padding-right-one">
-				<input type="email" name="register-email" placeholder="Correo Electrónico">
+				<input type="email" name="register-email" placeholder="Correo Electrónico" ng-model="MyLogin.email">
 			</div>
 			<div class="field padding-one">
-				<input type="password" name="register-password" placeholder="Contraseña">
+				<input type="password" name="register-password" placeholder="Contraseña" ng-model="MyLogin.password">
 			</div>
 			<div class="two fields padding-two">
 					<div class="field">
 						<a href="#">¿Olvidaste tu contraseña?</a>
 					</div>
 					<div class="field">
-						<button class="fluid ui blue button" type="submit">Iniciar sesión</button>
+						<button class="fluid ui blue button" ng-click="MyLogin.sendForm()">Iniciar sesión</button>
 					</div>
 			</div>
 		 </form>
@@ -91,14 +94,7 @@
 	<script src="../lib/bower/jquery/dist/jquery.min.js"></script>
 	<script src="../lib/semantic/dist/semantic.min.js"></script>
 	<script src="../lib/bower/angularjs/angular.min.js"></script>
-	<script type="text/javascript">
-		var app = angular.module("HomeApp", [])
-       .config(function($interpolateProvider){
-              $interpolateProvider.startSymbol('[[').endSymbol(']]');
-       });
-	</script>
 	<script src="../js/home.js"></script>
-
 
 	<script type="text/javascript">
 		$( "#openModal" ).click(function() {

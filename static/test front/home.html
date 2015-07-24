@@ -10,13 +10,9 @@
 		<link rel="stylesheet" type="text/css" href="../lib/semantic/dist/semantic.min.css">
 		<link rel="stylesheet" type="text/css" href="../css/helpers.css">
 		<link rel="stylesheet" type="text/css" href="../css/semantic_custom.css">
-		
-		<script src="../lib/bower/jquery/dist/jquery.min.js"></script>
-		<script src="../lib/semantic/dist/semantic.min.js"></script>
-		<script src="../lib/bower/angularjs/angular.min.js"></script>
 	
 </head>
-<body>
+<body ng-app="HomeApp">
 	<div class="ui grid container">
 		<div class="row">
 			<div class="column">
@@ -67,7 +63,7 @@
 	</div>
 
 
-	<div class="ui very_small modal">
+	<div class="ui very_small modal" ng-controller="loginController">
 	  <i class="close icon"></i>
 	  <div class="header">
 	    Iniciar sesión
@@ -92,10 +88,22 @@
 	  </div>
 	</div>
 
-<script type="text/javascript">
-	$( "#openModal" ).click(function() {
-	  $('.ui.modal').modal('show');
-	});
-</script>
+	<script src="../lib/bower/jquery/dist/jquery.min.js"></script>
+	<script src="../lib/semantic/dist/semantic.min.js"></script>
+	<script src="../lib/bower/angularjs/angular.min.js"></script>
+	<script type="text/javascript">
+		var app = angular.module("HomeApp", [])
+       .config(function($interpolateProvider){
+              $interpolateProvider.startSymbol('[[').endSymbol(']]');
+       });
+	</script>
+	<script src="../js/home.js"></script>
+
+
+	<script type="text/javascript">
+		$( "#openModal" ).click(function() {
+		  $('.ui.modal').modal('show');
+		});
+	</script>
 </body>
 </html>

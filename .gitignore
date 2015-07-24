@@ -3,4 +3,4 @@
 *.pyc
 *.sqlite3
 node_modules
-static/dist
+static/lib

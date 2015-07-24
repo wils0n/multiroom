@@ -39,8 +39,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #'modules.app1',  # <----------------change to name apps name in modules directory
-    #'modules.app2',  # <----------------change to name apps name in modules directory
-    #'social.apps.django_app.default', #python social auth  # <----------------add if use python social auth
     'django_extensions',
     #'rest_framework',  # <----------------add if use python drf
 )
@@ -56,7 +54,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-ROOT_URLCONF = 'name_project.urls'  # <----------------change to name project currently
+ROOT_URLCONF = 'multiroom.urls'
 
 TEMPLATES = [
     {
@@ -74,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'name_project.wsgi.application'  # <----------------change to name project currently
+WSGI_APPLICATION = 'multiroom.wsgi.application'
 
 
 # Database
@@ -118,55 +116,3 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.realpath(os.path.join(BASE_DIR, 'static')),
 )
-
-
-# uncomment <---------------- if use python social auth
-"""
-#######python social auth###################
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.core.context_processors.tz',
-    'django.core.context_processors.request',
-    'django.contrib.messages.context_processors.messages',
-    'django.contrib.auth.context_processors.auth',
-    "django.core.context_processors.debug",
-    "django.core.context_processors.i18n",
-    "django.core.context_processors.media",
-    "django.core.context_processors.static",
-    'social.apps.django_app.context_processors.backends',
-)
-
-AUTHENTICATION_BACKENDS = (
-    #'social.backends.twitter.TwitterOAuth',
-    #'django.contrib.auth.backends.ModelBackend',
-    'social.backends.facebook.FacebookOAuth2',
-    #'accounts.auth_backends.EmailOrUsernameBackend',
-    'django.contrib.auth.backends.ModelBackend',  #important for admin auth
-)
-
-SOCIAL_AUTH_PIPELINE = (
-    'social.pipeline.social_auth.social_details',
-    'social.pipeline.social_auth.social_uid',
-    'social.pipeline.social_auth.auth_allowed',
-    'social.pipeline.social_auth.social_user',
-    'social.pipeline.social_auth.associate_by_email',
-    'social.pipeline.user.get_username',
-    'social.pipeline.user.create_user',
-    'social.pipeline.social_auth.associate_user',
-    'social.pipeline.social_auth.load_extra_data',
-    'social.pipeline.user.user_details',
-    #'auth.pipeline.get_profile_avatar',
-    #'accounts.social_auth_pipeline.get_profile_data', # custom
-    #'accounts.social_auth_pipeline.get_profile_avatar', # custom
-    'modules.perfil.pipeline.get_profile_picture',  # <----------------uncomment if use pipeline for get picture in app perfil
-)
-
-from django.core.urlresolvers import reverse_lazy
-
-LOGIN_URL = reverse_lazy('auth_login')
-LOGOUT_URL = reverse_lazy('auth_logout')
-
-SOCIAL_AUTH_FACEBOOK_EXTENDED_PERMISSIONS = ['email', 'user_birthday']
-SOCIAL_AUTH_FACEBOOK_KEY = '12345678'
-SOCIAL_AUTH_FACEBOOK_SECRET = '1234567'
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = reverse_lazy('perfil_dashboard')
-"""

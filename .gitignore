@@ -3,4 +3,6 @@
 *.pyc
 *.sqlite3
 node_modules
-static/lib
+static/lib/semantic
+static/lib/node_modules
+static/lib/bower

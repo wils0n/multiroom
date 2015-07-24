@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+		<title>Test</title>
+		<meta name="description" content="">
+		<meta name=viewport content="width=device-width, initial-scale=1">
+		<meta name="mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />    
+	<link rel="stylesheet" type="text/css" href="../lib/semantic/dist/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/helpers.css">
+	<script src="../lib/bower/jquery/dist/jquery.min.js"></script>
+	<script src="../lib/semantic/dist/semantic.min.js"></script>
+	
+</head>
+<body>
+	<div class="ui grid container">
+		<div class="row">
+			<div class="column">
+				<div class="ui text menu">
+					<div class="header item">MuultiRoom</div>
+					<div class="right menu item">
+						<a href="#">Iniciar sesión</a>
+					</div>
+				</div>
+			
+			</div>
+		</div>
+	</div>
+	<div class="ui divider"></div>
+
+	<div class="padding-top-eight ui two column grid container">
+		<div class="column">
+			<img class="disabled medium ui image" src="../img/home1.png">
+		</div>
+		<div class="column">
+			<form class="ui form">
+			<h3 class="ui header">Crear una Cuenta</h3>
+			<div class="field">
+				<div class="two fields">
+					<div class="field">
+						<input type="text" name="shipping[register-first-name]" placeholder="Nombre">
+					</div>
+					<div class="field">
+						<input type="text" name="shipping[register-last-name]" placeholder="Apellido">
+					</div>
+				</div>
+			</div>
+			<div class="field">
+				<input type="email" name="register-email" placeholder="Correo Electrónico">
+			</div>
+			<div class="field">
+				<input type="password" name="register-password" placeholder="Contraseña">
+			</div>
+			<div class="field">
+				<div class="ui checkbox">
+					<input type="checkbox" tabindex="0" class="hidden">
+					<label>Acepto las  <a href="#">Condiciones y servicios de Multiroom</a></label>
+				</div>
+			</div>
+			<button class="fluid ui blue button" type="submit">Regístrate Gratis</button>
+		 </form>
+		</div>
+	</div>
+</body>
+</html>

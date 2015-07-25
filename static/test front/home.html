@@ -14,6 +14,7 @@
 	
 </head>
 <body ng-app="HomeApp">
+	<!--          NavBar          -->
 	<nav class="ui grid">
 	 <div class="ui grid container">
 		<div class="row">
@@ -31,41 +32,49 @@
 	</nav>
 	<div class="ui divider"></div>
 
+	<!--       Container       -->
 	<div class="ui grid container two column padding-top-eight">
+
+
 		<div class="column">
 			<img class="disabled medium ui image" src="../img/home1.png">
 		</div>
+
+		<!--    Register Form    -->
 		<div class="column" ng-controller="registerController">
-			<form class="ui form" ng-submit="MyRegister.sendForm()">
-			<h3 class="ui header">Crear una Cuenta</h3>
-			<div class="field">
-				<div class="two fields">
-					<div class="field">
-						<input type="text" name="shipping[register-first-name]" placeholder="Nombre" ng-model="MyRegister.firstName">
-					</div>
-					<div class="field">
-						<input type="text" name="shipping[register-last-name]" placeholder="Apellido" ng-model="MyRegister.lastName">
+			<form class="ui form" name="registerForm" ng-submit="registerForm.$valid && MyRegister.sendForm()" novalidate>
+				<h3 class="ui header">Crear una Cuenta</h3>
+				<div class="field">
+					<div class="two fields">
+						<div class="field" ng-class="{'error':(registerForm.firstName.$invalid && registerForm.firstName.$dirty) || (registerForm.firstName.$invalid && registerForm.firstName.$touched) }">
+							<input type="text" ng-required="true" name="firstName" placeholder="Nombre" ng-model="MyRegister.firstName">
+						</div>
+						<div class="field" ng-class="{'error':(registerForm.lastName.$invalid && registerForm.lastName.$dirty) || (registerForm.lastName.$invalid && registerForm.lastName.$touched) }">
+							<input type="text" name="lastName" placeholder="Apellido" ng-model="MyRegister.lastName" required>
+							<div ng-if="registerForm.lastName.$invalid && registerForm.lastName.$dirty" class="ui red pointing prompt label transition visible">Por favor, su apellido debe ser correcto</div>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="field">
-				<input type="email" name="register-email" placeholder="Correo Electrónico" ng-model="MyRegister.email">
-			</div>
-			<div class="field">
-				<input type="password" name="register-password" placeholder="Contraseña" ng-model="MyRegister.password">
-			</div>
-			<div class="field">
-				<div class="ui checkbox">
-					<input type="checkbox" tabindex="0" class="hidden">
-					<label>Acepto las  <a href="#">Condiciones y servicios de Multiroom</a></label>
+				<div class="field" ng-class="{'error':(registerForm.email.$invalid && registerForm.email.$dirty) || (registerForm.email.$invalid && registerForm.email.$touched) }">
+					<input type="email" name="email" placeholder="Correo Electrónico" ng-model="MyRegister.email" required>
 				</div>
-			</div>
-			<button class="fluid ui blue button" type="submit">Regístrate Gratis</button>
+				<div class="field">
+					<input type="password" minlength="6" name="password" placeholder="Contraseña" ng-model="MyRegister.password" required>
+					<div ng-if="registerForm.password.$invalid && registerForm.password.$dirty" class="ui yellow pointing prompt label transition visible">Por favor su contraseña al menos debe tener 6 elementos</div>
+				</div>
+				<div class="field">
+			    <div class="ui checkbox">
+			      <input type="checkbox" name="terms" ng-model="MyRegister.terms" required>
+			      <label>Acepto las  <a href="#">Condiciones y servicios de Multiroom</a></label>
+			    </div>
+			  </div>
+				<div>register for is [[registerForm.$valid]]</div>
+				<button class="fluid ui blue button" type="submit">Regístrate Gratis</button>
 		 </form>
 		</div>
 	</div>
 
-
+	<!--   Modal Login    -->
 	<div class="ui very_small modal" ng-controller="loginController">
 	  <i class="close icon"></i>
 	  <div class="header">
